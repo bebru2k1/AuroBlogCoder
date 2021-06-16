@@ -8,4 +8,4 @@ const PostSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'users' }
 }, { timestamps: true })
 
-module.exports = mongoose.model('Post', PostSchema)
+module.exports = mongoose.model('posts', PostSchema)
