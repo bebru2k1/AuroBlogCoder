@@ -5,8 +5,8 @@ POST http://localhost:5000/v1/api/auth/sigin
 Content-Type: application/json
 
 {
-    "username" : "ducanhdeptrai1",
-    "password" : "ducanh123"
+    "username" : "ducanhdeptrai",
+    "password" : "ducanhdeptrai"
 }
 
 
@@ -15,8 +15,8 @@ POST http://localhost:5000/v1/api/auth/register
 Content-Type: application/json
 
 {
-    "username" : "ducanhdeptrai",
-    "password" : "ducanhdeptrai",
+    "username" : "ducanh1",
+    "password" : "ducanh1",
     "displayName" : "Đức Ah"
 }
 
@@ -41,14 +41,40 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMzM
 ###
 POST  http://localhost:5000/v1/api/posts/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMzMDhjNjlkZWY0ZDA1Njg4NDQ4ODIiLCJpYXQiOjE2MjM0MjU2MTd9.wPcz5vszUeROyZ1QR8oGEKpPg8GP4uP5D22oU1XWtuw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMzMDg5MzlkZWY0ZDA1Njg4NDQ4ODEiLCJpYXQiOjE2MjM4Mjg5NDJ9.bWjEyji4bFi4KjdoKLJMNSvcGZ3smk1IvnlEKI57rmM
+
 
 {
-  "title" : "How To Learn Vue Speed ?",
-  "des" : "Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.If you’d like to learn more about Vue before diving in, we created a video walking through the core principles and a sample project.If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the Comparison with Other Frameworks.",
+  "title" : "How To Learn VueX",
+  "des" : "GraphQL (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.If you’d like to learn more about Vue before diving in, we created a video walking through the core principles and a sample project.If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the Comparison with Other Frameworks.",
 "image" : "https://i.ytimg.com/vi/4deVCNJq3qc/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLD-o1wtykfX2XYCbpOcqJNOsaG12Q"
 }
 
 ###
 GET http://localhost:5000/v1/api/posts/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMzMDhjNjlkZWY0ZDA1Njg4NDQ4ODIiLCJpYXQiOjE2MjM0MjU2MTd9.wPcz5vszUeROyZ1QR8oGEKpPg8GP4uP5D22oU1XWtuw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGM5YTNkMzAxOTMzZjFlOWM2YjJiOGQiLCJpYXQiOjE2MjM4Mjc0NzB9.slDruQOz4qP0qSRz-JeNtIRLOGCyLx1AtCqzKhavsGQ
+###
+DELETE http://localhost:5000/v1/api/posts/60c9ae2648ab741dbc1cf516
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMzMDg5MzlkZWY0ZDA1Njg4NDQ4ODEiLCJpYXQiOjE2MjM4Mjg5NDJ9.bWjEyji4bFi4KjdoKLJMNSvcGZ3smk1IvnlEKI57rmM
+
+###
+PUT http://localhost:5000/v1/api/posts/60c9ade6f110a12bb0ff112e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMzMDg5MzlkZWY0ZDA1Njg4NDQ4ODEiLCJpYXQiOjE2MjM4Mjg5NDJ9.bWjEyji4bFi4KjdoKLJMNSvcGZ3smk1IvnlEKI57rmM
+
+
+{
+  "title" : "How To Learn VueX New Ahihi",
+  "des" : "GraphQL (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.If you’d like to learn more about Vue before diving in, we created a video walking through the core principles and a sample project.If you are an experienced frontend developer and want to know how Vue compares to other libraries/frameworks, check out the Comparison with Other Frameworks.",
+"image" : "https://i.ytimg.com/vi/4deVCNJq3qc/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLD-o1wtykfX2XYCbpOcqJNOsaG12Q"
+}
+
+###
+POST http://localhost:5000/v1/api/comment/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMzMDg5MzlkZWY0ZDA1Njg4NDQ4ODEiLCJpYXQiOjE2MjM4Mjg5NDJ9.bWjEyji4bFi4KjdoKLJMNSvcGZ3smk1IvnlEKI57rmM
+
+
+{
+ "content" : "ahihi123"
+}

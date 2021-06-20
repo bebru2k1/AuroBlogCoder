@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const User = require('./User')
-
+const Comment = require('./Comment')
 const Post = require('./Post')
 
 const connect = async () => {
@@ -20,7 +20,7 @@ const connect = async () => {
 let db = {}
 const ROLES = ['admin', "user"]
 db.user = User
-
+db.comment = Comment
 db.post = Post
 db.ROLES = ROLES
 db.connect = connect

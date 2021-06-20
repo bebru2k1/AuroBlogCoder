@@ -44,14 +44,17 @@ module.exports.putPostsController = async (req, res) => {
     try {
         const { id } = req.params
         const { title, des, image } = req.body
-        if (!(!title || !des || !image)) return res.status(400).json({
-            success: false,
-            message: "Title/Des/Image has adlready exist"
-        })
-        const newPosts = await Post.findByIdAndUpdate(id, {
-            title, des, image
-        }, { new: true })
-        console.log('newposts', newPosts)
+        if (title || des || image) {
+            const newPosts = await Post.findByIdAndUpdate(id, {
+                ...req.body
+            }, { new: true })
+            console.log('newposts', newPosts)
+        }
+        // return res.status(400).json({
+        //     success: false,
+        //     message: "Title/Des/Image has adlready exist"
+        // })
+
     } catch (error) {
         console.log('error', error)
         res.status(500).json({ success: false, message: 'Internal server error' })
