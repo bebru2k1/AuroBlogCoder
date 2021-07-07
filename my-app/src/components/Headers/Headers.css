@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  margin-top: 20px;
+}
+
+.header__logo {
+  align-items: center;
+}
+
+.header__bar {
+  margin-left: 40px;
+  width: 2px;
+  background-color: rgb(201, 201, 201);
+}
+.header__logo img {
+  width: 50px;
+  border-radius: 5px;
+}
+
+.header__menu {
+  display: flex;
+}
+.header__menu__link {
+  margin-left: 40px;
+  list-style: none;
+}
+.header__menu__link:hover {
+  transform: scale(1.1);
+}
+.menu__home:hover {
+  color: var(--green-color);
+}
+
+.menu__post:hover {
+  color: var(--green-color);
+}
+
+.menu__about:hover {
+  color: var(--green-color);
+}
+
+.menu__project:hover {
+  color: var(--green-color);
+}
+.header__menu__link a {
+  color: white;
+  text-decoration: none;
+}

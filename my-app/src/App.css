@@ -1,7 +1,25 @@
+:root {
+  --pink-color: #fa3879;
+  --orage-color: #ff8000;
+  --blue-color: #5773ff;
+  --green-color: #0c8;
+  --white-color: #ffffff;
+}
 .App {
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Quicksand", sans-serif;
+  color: var(--white-color);
 }
-
+#tsparticles {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

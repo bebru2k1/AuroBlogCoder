@@ -70,11 +70,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMzM
 }
 
 ###
-POST http://localhost:5000/v1/api/comment/
+
+POST http://localhost:5000/v1/api/comments
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGMzMDg5MzlkZWY0ZDA1Njg4NDQ4ODEiLCJpYXQiOjE2MjM4Mjg5NDJ9.bWjEyji4bFi4KjdoKLJMNSvcGZ3smk1IvnlEKI57rmM
 
-
 {
- "content" : "ahihi123"
+  "content" : "Ahihi",
+  "postId" : "60c9ade6f110a12bb0ff112e"
 }
