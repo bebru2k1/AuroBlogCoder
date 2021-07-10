@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const cors = require('cors')
 const app = express()
 //DB
 const db = require('./models')
@@ -14,7 +15,7 @@ const commentRoute = require('./routes/comment.route')
 db.connect()
 
 app.use(express.json())
-
+app.use(cors())
 
 app.use('/v1/api/auth', authRoute)
 app.use('/v1/api/posts', postsRoute)

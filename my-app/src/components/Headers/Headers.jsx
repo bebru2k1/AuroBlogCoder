@@ -13,7 +13,7 @@ const Headers = () => {
       <div className="header__bar"></div>
       <ul className="header__menu">
         <li className="header__menu__link">
-          <Link to="/home" className="menu__home">
+          <Link to="/" className="menu__home">
             Trang chủ
           </Link>
         </li>

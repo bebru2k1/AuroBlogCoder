@@ -1,0 +1,81 @@
+.login {
+  background-color: #e2e2e2;
+  margin: 0 auto;
+  /* top: 20%;
+  left: 20%;
+  right: 20%;
+  bottom: 20%; */
+  position: fixed;
+  border-radius: 10px;
+  padding: 20px;
+}
+.login__title {
+  color: black;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.login__icon {
+  width: 50px;
+  height: 50px;
+  background-color: khaki;
+  border-radius: 50%;
+}
+
+.login__input {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.login__input input {
+  /* display: block; */
+  padding: 15px;
+  margin: 10px;
+}
+
+.login__input input:focus {
+  outline: var(--green-color);
+}
+
+.login__withapp {
+}
+
+.login__withapp__facebook {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login__action {
+  background-color: #4caf50; /* Green */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.signup {
+  color: black;
+}
+
+.signup p {
+  margin-top: 20px;
+}
+
+.signup a {
+  text-decoration: none;
+  color: black;
+  margin-left: 2px;
+}
+::placeholder {
+  color: var(--green-color);
+  opacity: 0.5; /* Firefox */
+}
