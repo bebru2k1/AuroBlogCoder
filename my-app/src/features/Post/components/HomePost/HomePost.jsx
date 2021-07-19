@@ -1,30 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePost.css";
-
+import { Link } from "react-router-dom";
 import axios from "../../../../configs/axiosConfig";
-
+import { postSelector, getHomePost } from "../../PostSlice";
+import { useSelector, useDispatch } from "react-redux";
 function HomePost() {
-  const getPostHome = async () => {
-    const respone = await axios.get("/posts");
-    console.log(respone.data.posts);
-  };
-  useEffect(() => {
-    getPostHome();
-  }, []);
+  const dispatch = useDispatch();
+  const { posts } = useSelector(postSelector);
 
+  useEffect(() => {
+    dispatch(getHomePost("/posts"));
+  }, [dispatch]);
+  console.log(posts);
   return (
     <div className="homepost">
       <p className="homepost__title">Các bài viết của mình</p>
       <div className="homepost__post">
-        <div className="homepost__post__item">
-          <img
-            src="https://images.unsplash.com/photo-1625602187345-8f83e1213bfa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
-            alt=""
-          />
-          <p className="homepost__post__item__des">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit
-          </p>
-        </div>
+        {posts?.map((posts) => (
+          <figure className="homepost__post__item" key={posts._id}>
+            <img src={posts.image} alt="" />
+            <Link
+              to={`/posts/${posts._id}`}
+              className="homepost__post__item__subcard"
+            >
+              <p className="homepost__post__item__des" key={posts._id}>
+                {posts.title}
+              </p>
+              <div className="flex">
+                <p className="homepost__post__item__time">
+                  {posts.createdAt.slice(0, 10)}
+                </p>
+                {/* <p className="homepost__post__item__author">
+                  {posts.user.displayName}
+                </p> */}
+              </div>
+            </Link>
+          </figure>
+        ))}
+      </div>
+      <div className="homepost_addlink">
+        <Link to="/posts">Xem Thêm Bài Viết </Link>
       </div>
     </div>
   );

@@ -1,20 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import imageUser from "../../../../assets/image/iconuser.png";
 import facebook from "../../../../assets/image/facebook.png";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { login, loginToken, authSelector } from "../../AuthSlice";
+import setAuthToken from "../../../../configs/setAuthToken";
 function Login() {
   const [dataLogin, setDataLogin] = useState({
     username: "",
     password: "",
   });
 
+  const dispatch = useDispatch();
+
+  const authState = useSelector(authSelector);
+  console.log("authState", authState);
+
   const dataChangeForm = (event) => {
     setDataLogin({ ...dataLogin, [event.target.name]: event.target.value });
   };
 
+  const handleSubmitForm = (event) => {
+    event.preventDefault();
+    dispatch(login(dataLogin));
+  };
   return (
-    <form className="login">
+    <form onSubmit={handleSubmitForm} className="login">
       <img src={imageUser} className="login__icon" alt="" />
 
       <p className="login__title">Chào mọi người đến với Aurora Blog</p>
@@ -41,7 +53,10 @@ function Login() {
         />
       </div>
 
-      <button className="login__action"> Login</button>
+      <button className="login__action" type="submit">
+        {" "}
+        Login
+      </button>
       <div className="signup">
         <p>Nếu bạn chưa có tài khoản</p>
         <Link to="/register">Đăng kí</Link>
