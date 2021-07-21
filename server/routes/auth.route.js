@@ -14,11 +14,28 @@ route.get('/', async (req, res) => {
     res.send('hello word')
 })
 
-//@route POST /v1/ap1/auth/sigin
+//@route POST /v1/api/auth/sigin
 //@des create new user
 //Public
-route.post('/sigin', passport.authenticate('local', { session: false }), sigInController)
+route.post('/sigin',
+    (req, res, next) => {
+        passport.authenticate('local', { session: false }, (err, user, info) => {
 
+            if (err) return next(err)
+            if (user.error) {
+                return res.json({ success: false, message: user.message })
+            }
+
+            if (!user) {
+                return res.json({ success: false, message: 'Thiếu thông tin đăng nhập' })
+            }
+            req.user = user
+            next()
+        })(req, res, next)
+    }
+    , sigInController)
+
+route.get('/sigintoken', passport.authenticate('jwt', { session: false }), sigInController)
 //@route POST /v1/ap1/auth/register
 //@des create new user
 //@access Public

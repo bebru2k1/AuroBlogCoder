@@ -31,18 +31,17 @@ passport.use(new LocalStrategy({
     passReqToCallback: true,
     session: false
 }, async (req, username, password, done) => {
-    // if username or password havenot
+
     try {
-        if (!username || !password) return res.status(401).json({
-            success: false,
-            message: 'username or/and password has aldreay'
-        })
-        //if have username and password
         const user = await User.findOne({ username })
-        if (!user) done(null, false)
+
+        if (!user) return done(null, { error: true, message: 'Không Tìm Thấy User' })
+
         const decodePassword = await argon2.verify(user.password, password)
-        if (!decodePassword) return res.status(401)
-        done(null, user)
+
+        if (!decodePassword) return done(null, { error: true, message: 'Không đúng mất khẩu' })
+
+        return done(null, user)
 
     } catch (error) {
         done(error, false)

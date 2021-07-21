@@ -36,10 +36,14 @@ module.exports.sigInController = async (req, res) => {
             { userId: user._id },
             process.env.SECRET_JWT
         )
-        res.json({
+        const { username, displayName, photos } = user
+        return res.json({
             success: true,
             message: 'User logged in successfully',
-            accessToken
+            accessToken,
+            user: {
+                username, displayName, photos
+            }
         })
     } catch (error) {
         console.log(error)

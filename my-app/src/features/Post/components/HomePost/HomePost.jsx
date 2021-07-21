@@ -6,17 +6,16 @@ import { postSelector, getHomePost } from "../../PostSlice";
 import { useSelector, useDispatch } from "react-redux";
 function HomePost() {
   const dispatch = useDispatch();
-  const { posts } = useSelector(postSelector);
-
+  const { postsHome } = useSelector(postSelector);
   useEffect(() => {
     dispatch(getHomePost("/posts"));
   }, [dispatch]);
-  console.log(posts);
+
   return (
     <div className="homepost">
       <p className="homepost__title">Các bài viết của mình</p>
       <div className="homepost__post">
-        {posts?.map((posts) => (
+        {postsHome?.map((posts) => (
           <figure className="homepost__post__item" key={posts._id}>
             <img src={posts.image} alt="" />
             <Link

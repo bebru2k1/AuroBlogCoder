@@ -5,9 +5,15 @@ POST http://localhost:5000/v1/api/auth/sigin
 Content-Type: application/json
 
 {
-    "username" : "ducanhdeptrai",
-    "password" : "ducanhdeptrai"
+    "username" : "ducanh1",
+    "password" : ""
 }
+
+###
+GET http://localhost:5000/v1/api/auth/siginToken
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MGM5YTNkMzAxOTMzZjFlOWM2YjJiOGQiLCJpYXQiOjE2MjY2NTYyMDd9.1JzSLcNv3vZCFtNT-jvF-93kLNav6fZTGFejOp-Hf0I
+
 
 
 ###
