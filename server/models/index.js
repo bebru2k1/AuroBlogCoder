@@ -4,8 +4,10 @@ const Comment = require('./Comment')
 const Post = require('./Post')
 
 const connect = async () => {
+
+
     try {
-        await mongoose.connect(`mongodb+srv://BlogGame:${process.env.DB_PASSWORD}@cluster0.peugm.mongodb.net/Cluster0?retryWrites=true&w=majority`, {
+        await mongoose.connect(`mongodb+srv://BlogAurora:${process.env.DB_PASSWORD}@blog.62krl.mongodb.net/test`, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             useFindAndModify: false,

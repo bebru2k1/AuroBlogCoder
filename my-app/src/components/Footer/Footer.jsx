@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import facebookimage from "../../assets/image/facebookdon.png";
 import "./Footer.css";
 function Footer() {

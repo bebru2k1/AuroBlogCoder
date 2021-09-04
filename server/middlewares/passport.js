@@ -34,15 +34,10 @@ passport.use(new LocalStrategy({
 
     try {
         const user = await User.findOne({ username })
-
-        if (!user) return done(null, { error: true, message: 'Không Tìm Thấy User' })
-
+        if (!user) return done(null, { error: true, message: 'Tài khoản chưa được đăng kí' })
         const decodePassword = await argon2.verify(user.password, password)
-
-        if (!decodePassword) return done(null, { error: true, message: 'Không đúng mất khẩu' })
-
+        if (!decodePassword) return done(null, { error: true, message: 'Mật khẩu không đúng' })
         return done(null, user)
-
     } catch (error) {
         done(error, false)
     }
@@ -59,10 +54,6 @@ passport.use(new FacebookTokenStrategy({
         })
         console.log(typeof profile.photos[0].value)
         if (user) return done(null, user)
-
-
-
-
         const newUser = new User({
             username: profile.displayName,
             authFacebookID: profile.id,

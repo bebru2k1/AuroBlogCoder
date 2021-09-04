@@ -6,7 +6,7 @@ require('../middlewares/passport')
 const { isAdmin } = require('../middlewares/isAdmin')
 //controller
 const {
-    getPostsController, createPostsController, deletePostsController,
+    getPostsController, getPostsBySlugController, createPostsController, deletePostsController,
     putPostsController
 } = require('../controller/post.controller')
 
@@ -15,6 +15,16 @@ const {
 //@access private
 //@role all
 route.get('/', getPostsController)
+
+
+//@route GET /v1/api/post
+//@des get post
+//@access private
+//@role all
+route.get('/:slug', getPostsBySlugController)
+
+
+
 
 //@route POST /v1/api/post
 //@des create post

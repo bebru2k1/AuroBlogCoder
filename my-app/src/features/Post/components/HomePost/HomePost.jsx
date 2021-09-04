@@ -1,40 +1,30 @@
-import React, { useEffect, useState } from "react";
-import "./HomePost.css";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import axios from "../../../../configs/axiosConfig";
-import { postSelector, getHomePost } from "../../PostSlice";
-import { useSelector, useDispatch } from "react-redux";
+import Spinner from "../../../Admin/components/Spinner/Spinner";
+import { getHomePost, postSelector } from "../../PostSlice";
+import SinglePost from "../SinglePost/SinglePost";
+import "./HomePost.css";
 function HomePost() {
+  const { postsLoading, postsHome } = useSelector(postSelector);
   const dispatch = useDispatch();
-  const { postsHome } = useSelector(postSelector);
   useEffect(() => {
-    dispatch(getHomePost("/posts"));
+    dispatch(getHomePost("/posts?_limit=4"));
   }, [dispatch]);
-
+  if (postsLoading) return <Spinner />;
   return (
     <div className="homepost">
       <p className="homepost__title">Các bài viết của mình</p>
       <div className="homepost__post">
         {postsHome?.map((posts) => (
-          <figure className="homepost__post__item" key={posts._id}>
-            <img src={posts.image} alt="" />
-            <Link
-              to={`/posts/${posts._id}`}
-              className="homepost__post__item__subcard"
-            >
-              <p className="homepost__post__item__des" key={posts._id}>
-                {posts.title}
-              </p>
-              <div className="flex">
-                <p className="homepost__post__item__time">
-                  {posts.createdAt.slice(0, 10)}
-                </p>
-                {/* <p className="homepost__post__item__author">
-                  {posts.user.displayName}
-                </p> */}
-              </div>
-            </Link>
-          </figure>
+          <SinglePost
+            key={posts._id}
+            image={posts.image}
+            title={posts.title}
+            createdAt={posts.createdAt}
+            className="homepost__post__item"
+            slug={posts.slug}
+          />
         ))}
       </div>
       <div className="homepost_addlink">

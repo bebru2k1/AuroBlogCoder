@@ -1,11 +1,11 @@
 import React from "react";
-import "./NavbarAdmin.css";
+import * as Icon from "react-feather";
 import { Link, NavLink, useRouteMatch } from "react-router-dom";
 import logo from "../../../../assets/image/glow.png";
 import imageme from "../../../../assets/image/meabout.jpg";
-import * as Icon from "react-feather";
+import "./NavbarAdmin.css";
 function NavbarAdmin() {
-  const { path, url } = useRouteMatch();
+  const { url } = useRouteMatch();
 
   return (
     <div className="sidebar">

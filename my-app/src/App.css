@@ -2,9 +2,16 @@
   --pink-color: #fa3879;
   --orage-color: #ff8000;
   --blue-color: #5773ff;
-  --green-color: #0c8;
+  --green-color: #00cc88;
   --white-color: #ffffff;
   --black-color: #282c35;
+  --violet-color: #ba8fff;
+  --yellow-color: rgb(255, 238, 0);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 a {
   text-decoration: none;
@@ -13,12 +20,19 @@ a {
   color: white;
 }
 .App {
-  text-align: center;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   font-family: "Quicksand", sans-serif;
   color: var(--white-color);
-  background-color: #282c35;
+  position: relative;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.webapp {
+  margin: 0 auto;
+  font-family: "Quicksand", sans-serif;
+  color: var(--white-color);
 }
 #tsparticles {
   position: fixed;
@@ -28,38 +42,77 @@ a {
   top: 0;
   z-index: -1;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+blockquote {
+  padding: 20px;
+  background-color: rgb(37, 35, 35, 0.5);
+  border-radius: 2px;
+  border-left: 3px solid var(--green-color);
+  margin: 20px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+body::-webkit-scrollbar {
+  width: 12px;
 }
 
-.App-header {
-  min-height: 100vh;
+body::-webkit-scrollbar-track {
+  background: rgb(138, 138, 138);
+  border-radius: 2px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(58, 58, 58);
+  border-radius: 2px;
+}
+.textcolor-pink {
+  color: var(--pink-color);
+}
+.textcolor-orage {
+  color: var(--orage-color);
+}
+.textcolor-blue {
+  color: var(--blue-color);
+}
+.textcolor-green {
+  color: var(--green-color);
+}
+.textcolor-black {
+  color: var(--black-color);
+}
+.textcolor-violet {
+  color: var(--violet-color);
+}
+.textcolor-yellow {
+  color: rgb(255, 238, 0);
+}
+.text-bold {
+  font-weight: bold;
+}
+.flex-alight {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
-
-.App-link {
-  color: rgb(112, 76, 182);
+.mr-10 {
+  margin-right: 10px;
 }
+@media (max-width : 739px) {
+  .hiddenOnMobile {
+    display: none;
+  }
+}
+/* @media (min-width: 1024px) and (max-width: 1239px) {
+  .App {
+    width: 984px;
+  }
+}
+@media (min-width: 740px) and (max-width: 1023px) {
+  .App {
+    width: 644px;
+  }
+} */
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.6rem;
 }

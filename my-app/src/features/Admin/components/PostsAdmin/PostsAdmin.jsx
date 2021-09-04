@@ -3,14 +3,15 @@ import "./PostAdmin.css";
 import { NavLink, useRouteMatch, Switch, Route } from "react-router-dom";
 import * as Icon from "react-feather";
 import ManagePost from "./ManagePost/ManagePost";
+import CreatePosts from "./CreatePosts/CreatePosts";
 function PostsAdmin() {
   const { url, path } = useRouteMatch();
-  console.log(url);
+
   return (
     <div className="postadmin">
       <ul className="postadmin__header">
         <li className="postadmin__header__item">
-          <NavLink to={`${url}`} activeClassName="activeLink">
+          <NavLink to={`${url}/home`} activeClassName="activeLink">
             <span className="postadmin__header__item__title ">
               Quản lý bài viết
             </span>
@@ -27,8 +28,12 @@ function PostsAdmin() {
         </li>
       </ul>
       <Switch>
-        <Route path={`${path}`} component={ManagePost}></Route>
-        <Route path={`${path}/create`}></Route>
+        <Route path={`${path}/home`}>
+          <ManagePost />
+        </Route>
+        <Route path={`${path}/create`}>
+          <CreatePosts />
+        </Route>
       </Switch>
     </div>
   );

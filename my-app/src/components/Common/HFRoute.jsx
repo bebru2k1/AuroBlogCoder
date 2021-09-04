@@ -1,12 +1,13 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import Headers from "../Headers/Headers";
+import Particles from "react-particles-js";
+import { Route } from "react-router-dom";
 import Footer from "../Footer/Footer";
+import Headers from "../Headers/Headers";
 function HFRoute({ ...rest }) {
-  console.log("rest", rest);
   return (
     <>
-      <Headers />
+      {/* <Headers /> */}
+      <Particles />
       <Route {...rest} />
       <Footer />
     </>

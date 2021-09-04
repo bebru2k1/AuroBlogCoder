@@ -13,6 +13,7 @@ function Banner() {
             classNames={["box font-large", "box font-large"]}
             content={["Đức Anh", "Web Developer"]}
             speed={200}
+            classNameCpn="banner__left__title__typing"
           />
 
           {/* <div className="banner-contact">
@@ -29,7 +30,7 @@ function Banner() {
           />
         </div> */}
         </div>
-        <div className="banner__right">
+        <div className="banner__right hiddenOnMobile">
           <img src={imageMe} alt="" />
         </div>
       </div>

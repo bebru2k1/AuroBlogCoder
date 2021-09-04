@@ -5,20 +5,22 @@ import setAuthToken from '../../configs/setAuthToken'
 
 //Reducer Thunk
 
-export const login = createAsyncThunk('auth/authLogin', async (dataForm, thunkApi) => {
+export const login = createAsyncThunk('auth/authLogin', async (dataForm, { rejectWithValue, dispatch }) => {
     const response = await axios.post('auth/sigin', dataForm)
     console.log(response.data)
-    if (response.status === 200) {
+    if (response.data.success) {
         localStorage.setItem('aurBlog-acc', response.data.accessToken)
         setAuthToken(response.data.accessToken)
+        dispatch(setModalLoginSuccess())
         return response.data
     } else {
-        return thunkApi.rejectWithValue(response.data)
+        return rejectWithValue(response.data)
     }
 
 })
 
-export const loginToken = createAsyncThunk('auth/siginToken', async ({ token }, { rejectWithValue }) => {
+export const loginToken = createAsyncThunk('auth/siginToken', async ({ token }, { rejectWithValue, getState }) => {
+
     try {
         const response = await axios.get('/auth/siginToken')
         if (response.status === 200) {
@@ -38,28 +40,91 @@ export const loginToken = createAsyncThunk('auth/siginToken', async ({ token }, 
 
 })
 
+export const register = createAsyncThunk('auth/register', async (dataForm, { rejectWithValue, dispatch }) => {
+    try {
+        console.log(dataForm)
+        const response = await axios.post('auth/register', dataForm)
+
+        console.log('res', response.status)
+        if (response.status === 200) {
+            dispatch(setModalRegisterSuccess())
+            return response.data
+        }
+    } catch (error) {
+        console.log(error.response)
+        dispatch(setMessageErrorRegister(error.response.data.message))
+    }
+})
+
+
 const AuthSlice = createSlice({
     name: "auth",
     initialState: {
-        authLoading: true,
+        authLoading: false,
         isAuthenticate: false,
-        user: null
+        user: null,
+        message: {
+            login: '',
+            register: ''
+        },
+        isOpenModalLoginSuccess: false,
+        isOpenModalRegisterSuccess: false
     },
-    reducers: {}
+    reducers: {
+        setModalLoginSuccess: (state) => {
+            state.isOpenModalLoginSuccess = true
+        },
+        setModalLoginFail: (state) => {
+            state.isOpenModalLoginSuccess = false
+        },
+        setModalRegisterSuccess: (state) => {
+            state.isOpenModalRegisterSuccess = true
+        },
+        setModalRegisterFail: (state) => {
+            state.isOpenModalRegisterSuccess = false
+        },
+        setMessageErrorRegister: (state, { payload }) => {
+            state.message.register = payload
+        },
+        setAuthSignOut: (state) => {
+            Object.assign(state, {
+                authLoading: false,
+                isAuthenticate: false,
+                user: null,
+            })
+        }, setUser: (state, { payload }) => {
+            Object.assign(state, {
+                user: payload,
+            })
+        }
+    }
     ,
     extraReducers: {
         [login.pending]: (state, action) => {
             Object.assign(state, { authLoading: true, isAuthenticate: false })
         },
         [login.fulfilled]: (state, { payload }) => {
-            Object.assign(state, {
-                authLoading: false,
-                isAuthenticate: true,
-                user: payload?.user
-            })
+            if (payload.success) {
+                Object.assign(state, {
+                    authLoading: false,
+                    isAuthenticate: true,
+                    user: payload?.user,
+                })
+            } else {
+                Object.assign(state, {
+                    authLoading: false,
+                    isAuthenticate: false,
+                    user: payload?.user,
+                })
+            }
         },
-        [login.rejected]: (state, action) => {
-            Object.assign(state, { authLoading: true, isAuthenticate: false, user: null })
+        [login.rejected]: (state, { payload }) => {
+            Object.assign(state, {
+                authLoading: false, isAuthenticate: false, user: null, message: {
+                    ...state.message,
+                    login: payload.message
+                }
+            })
         },
         // Login Token,
         [loginToken.pending]: (state, action) => {
@@ -76,8 +141,27 @@ const AuthSlice = createSlice({
             })
         },
         [loginToken.rejected]: (state, action) => {
-            Object.assign(state, { authLoading: true, isAuthenticate: false, user: null })
+            Object.assign(state, { authLoading: false, isAuthenticate: false, user: null })
         },
+
+        //register
+
+        // [register.pending]: (state, action) => {
+        //     Object.assign(state, {
+        //         authLoading: true,
+        //         isAuthenticate: false
+        //     })
+        // },
+        // [register.fulfilled]: (state, { payload }) => {
+        //     Object.assign(state, {
+        //         authLoading: false,
+        //         isAuthenticate: true,
+        //         user: payload?.user
+        //     })
+        // },
+        // [register.rejected]: (state, action) => {
+        //     Object.assign(state, { authLoading: false, isAuthenticate: false, user: null })
+        // },
     }
 })
 //Reducer
@@ -87,6 +171,6 @@ const authReducer = AuthSlice.reducer
 export const authSelector = state => state.auth
 
 
-export const { loginSuccess, loginFail } = AuthSlice.actions
+export const { setModalLoginSuccess, setModalLoginFail, setModalRegisterSuccess, setModalRegisterFail, setMessageErrorRegister, setAuthSignOut, setUser } = AuthSlice.actions
 
 export default authReducer
