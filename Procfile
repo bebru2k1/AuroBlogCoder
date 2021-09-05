@@ -1,1 +1,1 @@
-web: npm start --prefix server
+web: sh -c 'cd ./server && exec appname'
