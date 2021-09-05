@@ -1,2 +1,2 @@
-web: cd server
-worker: yarn run start
+web: /server yarn run start
+worker:
