@@ -11,7 +11,6 @@ const connect = async () => {
             useUnifiedTopology: true,
             useFindAndModify: false,
             useCreateIndex: true
-
         })
         console.log('Success Database Okay')
     } catch (error) {
