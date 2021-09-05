@@ -5,7 +5,6 @@ const Post = require('./Post')
 
 const connect = async () => {
 
-
     try {
         await mongoose.connect(`mongodb+srv://BlogAurora:${process.env.DB_PASSWORD}@blog.62krl.mongodb.net/Blog?retryWrites=true&w=majority`, {
             useNewUrlParser: true,
