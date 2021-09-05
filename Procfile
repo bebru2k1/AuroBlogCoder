@@ -1,1 +1,1 @@
-web: sh -c 'cd ./server && exec appname'
+web: sh -c 'cd ./server && yarn run start'
