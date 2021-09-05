@@ -1,2 +1,1 @@
-web: /server yarn run start
-worker:
+web: /server
