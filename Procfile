@@ -1,1 +1,1 @@
-web: cd server && yarn run start
+web: npm start --prefix server
