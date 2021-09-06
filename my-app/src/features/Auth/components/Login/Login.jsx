@@ -28,7 +28,6 @@ function Login() {
     dispatch(setModalRegisterFail());
     setMessageLogin(message.login);
   }, [message]);
-  // console.log(messageLogin);
 
   const dataChangeForm = (event) => {
     setDataLogin({ ...dataLogin, [event.target.name]: event.target.value });
@@ -39,7 +38,6 @@ function Login() {
     dispatch(login(dataLogin));
   };
   const handleFocusInput = (e) => {
-    console.log(e.target);
     setMessageLogin("");
   };
   // if (authLoading) return <Spinner />;

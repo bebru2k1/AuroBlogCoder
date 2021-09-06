@@ -47,12 +47,7 @@ function Posts() {
           />
         ))}
       </div>
-      {/* <Pagination
-        limit={_limit}
-        page={_page}
-        totalPage={Math.ceil(countPosts / _limit)}
-        setPage={set_Page}
-      /> */}
+
       <Pagination1
         pageQuery={_pageQuery}
         totalPage={Math.ceil(countPosts / limit)}

@@ -74,7 +74,6 @@ function PostDetail() {
   }, [posts, postsHome, slug]);
 
   useEffect(() => {
-    console.log("fetch data 1");
     window.scrollTo(0, 0);
     fetchData();
 
@@ -85,7 +84,6 @@ function PostDetail() {
 
   useEffect(() => {
     if (post?.length !== 0) {
-      console.log("fetch data 2");
       setLoadComment(true);
       fetchComment(post[0]._id);
     }

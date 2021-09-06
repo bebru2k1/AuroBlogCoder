@@ -45,7 +45,6 @@ function Account() {
   };
 
   const handleChangInputAvatar = (e) => {
-    console.log(e.target.value);
     setValueInputAvatar(e.target.value);
   };
   const handleChangInputContent = (e) => {
@@ -57,7 +56,7 @@ function Account() {
     dispatch(setUser(response.data.user));
     setToggleEditContent(false);
   };
-  console.log(user);
+
   if (!user) return <Login />;
 
   return (
