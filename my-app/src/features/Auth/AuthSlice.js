@@ -7,7 +7,7 @@ import setAuthToken from '../../configs/setAuthToken'
 
 export const login = createAsyncThunk('auth/authLogin', async (dataForm, { rejectWithValue, dispatch }) => {
     const response = await axios.post('auth/sigin', dataForm)
-    console.log(response.data)
+
     if (response.data.success) {
         localStorage.setItem('aurBlog-acc', response.data.accessToken)
         setAuthToken(response.data.accessToken)
@@ -31,7 +31,6 @@ export const loginToken = createAsyncThunk('auth/siginToken', async ({ token }, 
         else return rejectWithValue(response.data)
 
     } catch (error) {
-        console.log(error)
         setAuthToken(null)
         rejectWithValue(error.response.data)
         localStorage.removeItem('aurBlog-acc')
@@ -42,16 +41,17 @@ export const loginToken = createAsyncThunk('auth/siginToken', async ({ token }, 
 
 export const register = createAsyncThunk('auth/register', async (dataForm, { rejectWithValue, dispatch }) => {
     try {
-        console.log(dataForm)
+
         const response = await axios.post('auth/register', dataForm)
 
-        console.log('res', response.status)
+
+
         if (response.status === 200) {
             dispatch(setModalRegisterSuccess())
             return response.data
         }
     } catch (error) {
-        console.log(error.response)
+
         dispatch(setMessageErrorRegister(error.response.data.message))
     }
 })
