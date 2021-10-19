@@ -35,10 +35,3 @@
   text-align: center;
 }
 
-@media screen and (max-width: 739px) {
-  .pagination__item {
-    font-size: 1.6rem;
-    width: 15px;
-    height: 15px;
-  }
-}

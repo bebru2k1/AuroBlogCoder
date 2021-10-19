@@ -94,7 +94,7 @@ body::-webkit-scrollbar-thumb {
 .mr-10 {
   margin-right: 10px;
 }
-@media (max-width : 739px) {
+@media (max-width: 739px) {
   .hiddenOnMobile {
     display: none;
   }
