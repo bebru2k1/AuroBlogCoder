@@ -132,6 +132,16 @@ function MyCv() {
                 <Icon.ThumbsUp className="mr-10 mycv__right-item-lorem__rating-icon" />
                 <span>Cơ bản</span>
               </p>
+             <p className=" mycv__right-item-lorem-text textcolor-green flex-alight">
+                <Icon.Zap className="mycv__right-item-lorem-icon" />
+                <span>Nextjs</span>
+              </p>
+              <p className="mycv__right-item-lorem__rating flex-alight ">
+                <Icon.ThumbsUp className="mr-10 mycv__right-item-lorem__rating-icon" />
+                <span>Cơ bản</span>
+              </p>
+
+
             </div>
             <div className="mycv__right__skill-right ">
               <p className=" mycv__right-item-lorem-text textcolor-green flex-alight ">
@@ -153,6 +163,15 @@ function MyCv() {
               <p className=" mycv__right-item-lorem-text textcolor-green flex-alight ">
                 <Icon.Zap className="mycv__right-item-lorem-icon" />
                 <span>EXPRESS</span>
+              </p>
+              <p className="mycv__right-item-lorem__rating flex-alight ">
+                <Icon.ThumbsUp className="mr-10 mycv__right-item-lorem__rating-icon" />
+                <span>Cơ bản</span>
+              </p>
+
+ <p className=" mycv__right-item-lorem-text textcolor-green flex-alight">
+                <Icon.Zap className="mycv__right-item-lorem-icon" />
+                <span>TypeScript</span>
               </p>
               <p className="mycv__right-item-lorem__rating flex-alight ">
                 <Icon.ThumbsUp className="mr-10 mycv__right-item-lorem__rating-icon" />
