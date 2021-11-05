@@ -234,6 +234,30 @@ function MyCv() {
               </div>
             </a>
           </div>
+ <div className="mycv__right__project__content flex-alight">
+            <Icon.Link className="mycv__right__project__content-icon" />
+            <a
+              href="https://comic-tau.vercel.app/"
+              className="mycv__right__project__content-link"
+              target="blank"
+            >
+              Anime
+              <div
+                style={{
+                  marginTop: "2px",
+
+                  fontSize: "17px",
+                  fontWeight: "bold",
+                  color: "var(--green-color)",
+                  backgroundColor: "rgba(0, 204, 136,0.1)",
+                  padding: "5px",
+                  borderRadius: "5px",
+                }}
+              >
+                Nextjs-TypeScript
+              </div>
+            </a>
+          </div>
           {/* <div className="mycv__right__project__content flex-alight">
             <Icon.Link className="mycv__right__project__content-icon" />
             <Link to="/" className="mycv__right__project__content-link">
