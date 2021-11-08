@@ -19,6 +19,7 @@ function MyCv() {
     <div className="mycv row">
       <div className="mycv__left col c-12 lm-6">
         <div className="mycv__left__image">
+          {/* <img src={avatar} alt="" /> */}
           <img src={avatar} alt="" />
         </div>
         <div className="mycv__left__subimage">
@@ -64,7 +65,20 @@ function MyCv() {
             <p>- Hứng thú với việc tìm ra hướng giải quyết cho vấn đề</p>
           </div>
         </div>
-        <div className="mycv__left__contact"></div>
+        <div className="mycv__left__yourself">
+          <h2 className="mycv__left__yourself__title textcolor-green">
+            Học Vấn
+          </h2>
+          <div className="mycv__left__yourself__item">
+            <p>Đại Học Vinh</p>
+            <br />
+
+            <p>Sinh Viên Năm 3</p>
+            <br />
+
+            <p>Sư Phạm Toán</p>
+          </div>
+        </div>
       </div>
       <div className="mycv__right col c-12 lm-6">
         <div className="mycv__right__des mycv__right-item">
@@ -132,7 +146,7 @@ function MyCv() {
                 <Icon.ThumbsUp className="mr-10 mycv__right-item-lorem__rating-icon" />
                 <span>Cơ bản</span>
               </p>
-             <p className=" mycv__right-item-lorem-text textcolor-green flex-alight">
+              <p className=" mycv__right-item-lorem-text textcolor-green flex-alight">
                 <Icon.Zap className="mycv__right-item-lorem-icon" />
                 <span>Nextjs</span>
               </p>
@@ -140,8 +154,6 @@ function MyCv() {
                 <Icon.ThumbsUp className="mr-10 mycv__right-item-lorem__rating-icon" />
                 <span>Cơ bản</span>
               </p>
-
-
             </div>
             <div className="mycv__right__skill-right ">
               <p className=" mycv__right-item-lorem-text textcolor-green flex-alight ">
@@ -169,7 +181,7 @@ function MyCv() {
                 <span>Cơ bản</span>
               </p>
 
- <p className=" mycv__right-item-lorem-text textcolor-green flex-alight">
+              <p className=" mycv__right-item-lorem-text textcolor-green flex-alight">
                 <Icon.Zap className="mycv__right-item-lorem-icon" />
                 <span>TypeScript</span>
               </p>
@@ -253,7 +265,7 @@ function MyCv() {
               </div>
             </a>
           </div>
- <div className="mycv__right__project__content flex-alight">
+          <div className="mycv__right__project__content flex-alight">
             <Icon.Link className="mycv__right__project__content-icon" />
             <a
               href="https://comic-tau.vercel.app/"
@@ -283,22 +295,6 @@ function MyCv() {
               Realtime Chat
             </Link>
           </div> */}
-        </div>
-
-        <div className="mycv__right__education mycv__right-item">
-          <h2 className="flex-alight">
-            <Icon.Activity className="mr-10" />
-            <span>HỌC VẤN</span>
-          </h2>
-          <div className="mycv__right-item-lorem box-quoute">
-            <p>
-              <strong>Đại Học Vinh</strong>
-            </p>
-            <br />
-            <p>Sinh viên năm 2</p>
-            <br />
-            <p>Chuyên ngành Sư Phạm</p>
-          </div>
         </div>
       </div>
     </div>
